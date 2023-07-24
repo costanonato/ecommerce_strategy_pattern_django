@@ -1,0 +1,29 @@
+[
+  {
+    "model": "orders.coupon",
+    "pk": 1,
+    "fields": {
+      "discount_type": 1,
+      "discount_value": 10.00,
+      "code": "10PercentOff"
+    }
+  },
+  {
+    "model": "orders.coupon",
+    "pk": 2,
+    "fields": {
+      "discount_type": 3,
+      "discount_value": 500.00,
+      "code": "QuinhentaoOff"
+    }
+  },
+  {
+    "model": "orders.coupon",
+    "pk": 3,
+    "fields": {
+      "discount_type": 3,
+      "discount_value": "15",
+      "code": "Aniversario15Anos"
+    }
+  }
+]
