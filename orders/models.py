@@ -1,3 +1,4 @@
+from datetime import date
 from decimal import Decimal
 
 from django.db import models
@@ -30,8 +31,15 @@ class Coupon(models.Model):
     code = models.CharField(max_length=200)
 
     def calculate_discount_for(self, order: Order) -> Decimal:
+        # [Aniversario15Anos]
+        if self.code == "Aniversario15Anos":
+            if date.today() == date(2023, 7, 24):
+                return self.discount_value
+            else:
+                return Decimal(0)
+
         # [Percentage Discount]
-        if self.discount_type == self.DiscountTypes.PERCENTAGE:
+        elif self.discount_type == self.DiscountTypes.PERCENTAGE:
             full_discount = (order.subtotal * self.discount_value) / 100
 
             if order.created_at.year >= 2023:
