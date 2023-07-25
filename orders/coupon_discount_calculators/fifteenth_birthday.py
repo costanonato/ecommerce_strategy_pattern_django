@@ -7,8 +7,10 @@ from .coupon_discount_calculator import CouponDiscountCalculator
 
 
 class FifteenthBirthday(CouponDiscountCalculator):
+    FIFTEENTH_BIRTHDAY_DATE = date(2023, 7, 24)
+
     def calculate(self, coupon: Coupon, order: Order) -> Decimal:
-        if date.today() == date(2023, 7, 24):
+        if date.today() == self.FIFTEENTH_BIRTHDAY_DATE:
             return coupon.discount_value
         else:
             return Decimal(0)
